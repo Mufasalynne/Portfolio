@@ -27,13 +27,13 @@
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--font-primary); }
 html, body { height: 100%; background: linear-gradient(180deg, var(--bg-1), var(--bg-2)); color: var(--text-color); scroll-behavior: smooth; line-height: 1.6; }
 a { color: var(--accent); text-decoration: none; transition: color 0.3s; }
-.section { padding: 80px 4%; max-width: var(--maxw); margin: 0 auto; }
+.section { padding: 10px 3%; max-width: var(--maxw); margin: 0 auto; }
 .glass-card { 
     background: var(--glass-1); 
     border: 1px solid var(--glass-border); 
     backdrop-filter: blur(15px); 
     border-radius: var(--radius); 
-    padding: 30px;
+    padding: 20px;
 }
 /* ... (Other utility classes like .btn, .section-title) ... */
 
@@ -563,12 +563,12 @@ header.hero {
 .skills-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    margin-top: 20px;
+    gap: 15px;
+    margin-top: 10px;
 }
 
 .skill-group {
-    padding: 30px;
+    padding: 10px;
 }
 
 .skill-group h3 {
@@ -583,16 +583,16 @@ header.hero {
 .skill-icons-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 15px;
+    gap: 10px;
 }
 
 .skill-icon-box {
-    padding: 15px;
+    padding: 10px;
     background: var(--glass-2);
     border-radius: 12px;
     text-align: center;
     border: 1px solid var(--glass-border);
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
     cursor: default;
     position: relative;
     overflow: hidden;
@@ -609,7 +609,7 @@ header.hero {
     font-size: 38px;
     margin-bottom: 2px;
     color: var(--blue-2);
-    transition: color 0.3s ease;
+    transition: color 0.1s ease;
 }
 
 .skill-icon-box:hover i {
@@ -631,7 +631,7 @@ header.hero {
     transform: translateX(-50%);
     font-size: 12px;
     background: var(--blue-1);
-    padding: 5px 10px;
+    padding: 3px 5px;
     border-radius: 6px;
     opacity: 0;
     visibility: hidden;
@@ -699,6 +699,152 @@ header.hero {
     background: rgba(27, 159, 255, 0.1);
     color: var(--blue-2);
     border: 1px solid rgba(27, 159, 255, 0.4);
+}
+
+/* Volunteer Section */
+#volunteer {
+  padding: 20px 0;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.5) /* dark navy blue */
+    rgba(15, 23, 42, 0.5) /* rich blue */
+  );
+  color: #eef6fa;
+  text-align: center;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Glass container wrapper for list */
+#volunteer .vol-list {
+  list-style: none;
+  padding: 0;
+  margin: 30px auto;
+  max-width: 900px;
+  backdrop-filter: blur(8px); /* glass blur */
+  -webkit-backdrop-filter: blur(8px);
+  background: rgba(20, 4, 92, 0.15); /* semi-transparent white glass */
+  border: 1px solid rgba(22, 4, 88, 0.25);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* subtle shadow */
+  padding: 10px;
+}
+
+/* Individual volunteer items */
+#volunteer .vol-list li {
+  position: relative;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  transition: 0.25s ease;
+  border-left: 4px solid #4285f4; /* blue accent */
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Hover interactivity */
+#volunteer .vol-list li:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(5px) scale(1.02);
+  border-left: 4px solid #76a9fa; /* lighter blue highlight */
+}
+
+/* Optional small title inside items */
+#volunteer .vol-list li h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #cce4f6; /* light-ish blue text */
+}
+
+/* description text inside items */
+#volunteer .vol-list li p {
+  margin: 6px 0 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #eef6fa;
+}
+
+/* For responsiveness */
+@media (max-width: 600px) {
+  #volunteer .vol-list {
+    padding: 15px;
+  }
+}
+
+
+
+/* Certifications Section */
+#certifications {
+  padding: 60px 0;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.5), /* dark navy blue */
+    rgba(15, 23, 42, 0.5) /* rich blue */
+  );
+  color: #eef6fa;
+  text-align: center;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Section Title */
+#certifications .section-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #cce4f6;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Container for certificates */
+#certifications .cert-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+/* Individual certificate card */
+#certifications .cert-card {
+  background: rgba(255, 255, 255, 0.15); /* glass */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  width: 330px; /* controlled size */
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* Image styling */
+#certifications .cert-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* Caption text */
+#certifications .cert-card p {
+  font-size: 0.9rem;
+  color: #eef6fa;
+  margin: 5px 0 0;
+}
+
+/* Hover effect */
+#certifications .cert-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  border-color: #76a9fa;
+}
+  
+/* Responsive (smaller screens) */
+@media (max-width: 600px) {
+  #certifications .cert-card {
+    width: 140px;
+  }
 }
 
 /* === CONTACT SECTION === */

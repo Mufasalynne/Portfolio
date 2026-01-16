@@ -159,51 +159,23 @@ document.querySelectorAll(".contact-item[data-value]").forEach(item => {
 document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
     const status = document.getElementById("formStatus");
-    const formData = {
-        name: this.name.value,
-        email: this.email.value,
-        subject: this.subject.value,
-        message: this.message.value
-    };
 
-    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData, "YOUR_USER_ID")
-    .then(() => {
-        status.innerText = "Message sent successfully!";
-        status.style.color = "#22c55e"; // green
+    // Use sendForm to submit the entire form element to EmailJS.
+    // Replace placeholders "YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", "YOUR_USER_ID" with real values.
+    emailjs.sendForm(
+        "service_y93jk9p",
+        "template_xchdthm",
+        this,
+        "YOUR_USER_ID"
+    ).then(() => {
+        status.textContent = "Message sent successfully ✔";
+        status.style.color = "#22c55e";
         this.reset();
-    }, (err) => {
-        status.innerText = "Failed to send message. Try again!";
-        status.style.color = "#ef4444"; // red
-        console.error(err);
+    }).catch((error) => {
+        status.textContent = "Failed to send message. Please try again.";
+        status.style.color = "#ef4444";
+        console.error("EmailJS Error:", error);
     });
 });
 
-    // --- 6. Interactive Contact Details (Copy to Clipboard) ---
-    // Provides cool interactivity by automatically copying contact details on click.
-    document.querySelectorAll('.contact-item').forEach(item => {
-        item.addEventListener('click', (e) => {
-            // Prevent link navigation for non-social links
-            if (!item.classList.contains('social-link')) {
-                e.preventDefault();
-                const value = item.getAttribute('data-value');
-                const originalText = item.getAttribute('data-text');
-
-                navigator.clipboard.writeText(value).then(() => {
-                    // Temporarily update hover text for visual confirmation
-                    item.setAttribute('data-text', 'COPIED!');
-
-                    // Use GSAP to visually confirm the copy action
-                    gsap.to(item, { backgroundColor: 'rgba(0, 255, 255, 0.4)', duration: 0.2, yoyo: true, repeat: 1, onComplete: () => {
-                        item.style.backgroundColor = ''; // Remove temp background after flash
-                    }});
-                    
-                    setTimeout(() => {
-                        item.setAttribute('data-text', originalText);
-                    }, 1500);
-                }).catch(err => {
-                    console.error('Could not copy text: ', err);
-                });
-            }
-        });
-    });
 });
